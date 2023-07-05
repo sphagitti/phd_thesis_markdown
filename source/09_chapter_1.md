@@ -3,42 +3,57 @@
 \doublespacing
 \setlength{\parindent}{0.5in}
 
-# Introduction, with a citation {#sec:intro}
+# The ARIMA model {#sec:intro}
 
-## Background
+The ARIMA model consists of three different models combined into one and can be used to make predictions.
 
-This is the introduction. Quisque finibus aliquet cursus. Integer in pellentesque tellus. Duis eu dignissim nulla, a porttitor enim. Quisque vehicula leo non ultrices finibus. Duis vehicula quis sem sit amet sollicitudin. Integer neque est, pharetra et auctor vel, iaculis interdum lectus.
+## AR component
 
-<!-- 
-To include a reference, add the citation key shown in the references.bib file.
--->
+The AR part of ARIMA stands for "Auto-Regression". Values from previous time stamps are used to predict the value for the next time stamp. The parameter **p** determines how many past values are used. Thus, the formula for the AR model can look like this [@hyndman_rj_83_2018]:
 
-To include a citation to the text, just add the citation key shown in the references.bib file. The style of the citation is determined by the ref_format.csl file. For example, in The Living Sea you can find pictures of the Calypso [@Cousteau1963].
+$$y_{t} = c + \phi_{1} y_{t-1} + \phi_{2} y_{t-2} + ⋯ + \phi_{p} y_{t-p} + \varepsilon_{t}$$ {#eq:my_equation}
 
-In neque mauris, maximus at sapien a, iaculis dignissim justo. Aliquam erat volutpat. Praesent varius risus auctor est ultricies, sit amet consequat nisi laoreet. Suspendisse non est et mauris pharetra sagittis non porta justo. Praesent malesuada metus ut sapien sodales ornare.
+The component _c_ is a constant and can be used to shift the outcome of the prediction. If not desired, it can be set to 0 and be left out.
 
-## The middle bit
+The component $\varepsilon_{t}$ is white noise.
 
-This is the middle bit. Phasellus quis ex in ipsum pellentesque lobortis tincidunt sed massa. Nullam euismod sem quis dictum condimentum. Suspendisse risus metus, elementum eu congue quis, viverra ac metus. Donec non lectus at lectus euismod laoreet pharetra semper dui. Donec sed eleifend erat, vel ultrices nibh. Nam scelerisque turpis ac nunc mollis, et rutrum nisl luctus.
+## I component
 
-Duis faucibus vestibulum elit, sit amet lobortis libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed at cursus nibh. Sed accumsan imperdiet interdum. Proin id facilisis tortor. Proin posuere a neque nec iaculis. Suspendisse potenti. Nullam hendrerit ante mi, vitae iaculis dui laoreet eu.
+The I part stands for "Integrated" and is described by the integration of the differentiation terms of the time series to establish data stationarity.
+The paramter **d** indicates how often this operation is performed. 
+If the time series is not stationary i.e. its statistical properties such as mean and variance vary over time, they must be stabilized by differentiation to allow stable prediction.
 
-Cras eleifend velit diam, eu viverra mi volutpat ut. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus leo nec dui imperdiet, tincidunt ornare orci venenatis. Maecenas placerat efficitur est, eu blandit magna hendrerit eu.
+This part can be described with the formula [@schaffer_interrupted_2021]:
 
-### Subsection of the middle bit
+$$y'_{t} = y_{t} - y_{t-1}$$ {#eq:my_equation}
 
-This is a subsection of the middle bit. Quisque sit amet tempus arcu, ac suscipit ante. Cras massa elit, pellentesque eget nisl ut, malesuada rutrum risus. Nunc in venenatis mi. Curabitur sit amet suscipit eros, non tincidunt nibh. Phasellus lorem lectus, iaculis non luctus eget, tempus non risus. Suspendisse ut felis mi.
 
-## Summary of chapters
+## MA component
 
-<!--
-For italic, add _ on either side of the text
-For bold, add ** on either side of the text
-For bold and italic, add _** on either side of the text
--->
+The MA part stands for "Moving Average". Previous forecast errors are used to predict the next value. The parameter **q** determines how many past forecast errors are used. Thus, the formula for the MA model can look like this [@hyndman_rj_84_2018]: 
 
-This is a brief outline of what went into each chapter, and a section which shows how to reference headers (which are labelled automatically for you). This chapter, @sec:intro, shows how to use citations and how to reference section headers. @sec:lit-review shows how use and reference equations. @sec:research-code shows how to use and reference code. @sec:research-figure shows how to use, reference, and resize pdf and jpg figures. @sec:research-table shows how to use and reference tables. @sec:research-final is truly revolutionary (but shows nothing functional). **[Appendix 1](#appendix-1-some-extra-stuff)** shows how to add chapters which are not numbered, and has to be referenced manually, as does **[Appendix 2](#appendix-2-some-more-extra-stuff)**. See the base [`README.md`](https://github.com/tompollard/phd_thesis_markdown/blob/master/README.md) for how References are handled - leave `*_references.md` alone, and provide it to `pandoc` last.
+$$y_{t} = c + \varepsilon_{t} + \theta_{1} \varepsilon_{t-1} + \theta_{2} \varepsilon_{t-2} + ⋯ + \theta_{q} \varepsilon_{t-q}$$ {#eq:my_equation}
 
-Proin faucibus nibh sit amet augue blandit varius.
+As in the AR model, the component _c_ is a constant to shift the outcome and the component $\varepsilon_{t}$ is white noise.
 
+
+## Determing the parameters
+
+There are various ways to determine the parameters. One way would be to use random numbers in a certain range. In the following, one mathematical approach for each paramter will be described.
+
+### Parameters  $\phi_{1},...,\phi_{p}, \theta_{1},...,\theta_{q}$
+
+The parameters **$\phi_{1},...,\phi_{p}, \theta_{1},...,\theta_{q}$** can be determined by using maximum likelihood estimation (MLE). This method tries to find the parameter values that minimize the distance between the observed values and the predicted values.
+
+### Parameter p
+
+To choose a suitable value for the parameter **p** it is possible to choose the most significant lags in the partial autocorrelation function plot. This function is estimated by the partial correlation of values after controlling for the effects of other variables [@zvornicanin_choosing_2023].
+
+### Parameter d
+
+The paramter **d** is the value at which the time series becomes stationary and the ACF plot and PACF plot of the differentiated time series no longer show significant autocorrelations.It can be determined by checking test statistics such as the ADF test (Augmented Dickey-Fuller Test). When the value returned from that test is greater than 0.5 the time series is non-stationary and more differenciating is needed.
+
+### Parameter q
+
+Similar to the parameter p, the parameter **q** can be chosen by the most significant lags in the autocorrelation function plot. This plot shows the correlation of the values in a time series [@zvornicanin_choosing_2023].
 

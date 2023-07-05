@@ -1,4 +1,14 @@
-# First research study, with code {#sec:research-code}
+# Neuronal Network {#sec:research-code}
+
+## Architecture / Theory
+
+Aufbau, Prinzip
+
+## Neuronal network with arima
+
+Umsetzung anhand von Beispieldaten
+
+<!-- 
 
 ## Introduction
 
@@ -31,6 +41,7 @@ By running the code in @sec:subsec-code, we solved AI completely. This is the se
 <!-- 
 Comments can be added like this.
 --> 
+<!-- 
 
 ## Results
 
@@ -44,3 +55,4 @@ This is the discussion. Duis ultrices tempor sem vitae convallis. Pellentesque l
 
 This is the conclusion to the chapter. Praesent bibendum urna orci, a venenatis tellus venenatis at. Etiam ornare, est sed lacinia elementum, lectus diam tempor leo, sit amet elementum ex elit id ex. Ut ac viverra turpis. Quisque in nisl auctor, ornare dui ac, consequat tellus.
 
+--> 

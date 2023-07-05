@@ -1,4 +1,13 @@
-# Research containing a figure {#sec:research-figure}
+# Linear Regression {#sec:research-figure}
+
+## Theory
+
+Prinzip hinter linearer Regression
+
+## Code
+
+Umsetzung im Code
+<!-- 
 
 ## Introduction
 
@@ -19,6 +28,7 @@ This is the second part of the methodology. Sed ut ipsum ultrices, interdum ipsu
 <!-- 
 Comments can be added like this.
 --> 
+<!-- 
 
 ## Results
 
@@ -29,6 +39,7 @@ These are the results. In vitae odio at libero elementum fermentum vel iaculis e
 <!--
 Figures can be either referenced using @fig:mylabel. See https://lierdakil.github.io/pandoc-crossref/
 -->
+<!-- 
 
 @fig:my_fig shows how to add a figure. Donec ut lacinia nibh. Nam tincidunt augue et tristique cursus. Vestibulum sagittis odio nisl, a malesuada turpis blandit quis. Cras ultrices metus tempor laoreet sodales. Nam molestie ipsum ac imperdiet laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
@@ -38,7 +49,7 @@ Figures can be added with the following syntax:
 
 For details on setting attributes like width and height, see:
 http://pandoc.org/MANUAL.html#extension-link_attributes
---> 
+
 
 ![RV Calypso is a former British Royal Navy minesweeper converted into a research vessel for the oceanographic researcher Jacques-Yves Cousteau. It was equipped with a mobile laboratory for underwater field research.](source/figures/example_figure.pdf){#fig:my_fig width=100% short-caption="Figure short caption"}
 
@@ -48,7 +59,8 @@ This is the conclusion to the chapter. Quisque nec purus a quam consectetur volu
 
 <!--
 Below is an example that does not utilize the shortcaption feature, as it already fits neatly on a line. Note that multiple file formats are acceptable for sources (jpg, tiff, pdf, etc.)
--->
+
 
 ![This is not a boat](source/figures/full_caption_example.jpg){#fig:other_fig width=100%}
 
+--> 

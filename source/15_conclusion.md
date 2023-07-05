@@ -1,9 +1,12 @@
 # Conclusion {#sec:conclusion}
 
+Thesis summary
+
 <!-- 
 A chapter that concludes the thesis by summarising the learning points
 and outlining future areas for research
 -->
+<!-- 
 
 ## Thesis summary
 

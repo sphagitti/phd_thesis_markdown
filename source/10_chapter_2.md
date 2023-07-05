@@ -1,4 +1,4 @@
-# Literature review, with maths {#sec:lit-review}
+# The ML model {#sec:lit-review}
 
 <!--
 After the introductory chapter, it seems fairly common to
@@ -6,7 +6,22 @@ include a chapter that reviews the literature and
 introduces methodology used throughout the thesis.
 -->
 
-## Introduction
+## Structure of the model
+
+Output von ARIMA
+
+
+<!--
+For italic, add _ on either side of the text
+For bold, add ** on either side of the text
+For bold and italic, add _** on either side of the text
+-->
+
+<!-- 
+
+This is a brief outline of what went into each chapter, and a section which shows how to reference headers (which are labelled automatically for you). This chapter, @sec:intro, shows how to use citations and how to reference section headers. @sec:lit-review shows how use and reference equations. @sec:research-code shows how to use and reference code. @sec:research-figure shows how to use, reference, and resize pdf and jpg figures. @sec:research-table shows how to use and reference tables. @sec:research-final is truly revolutionary (but shows nothing functional). **[Appendix 1](#appendix-1-some-extra-stuff)** shows how to add chapters which are not numbered, and has to be referenced manually, as does **[Appendix 2](#appendix-2-some-more-extra-stuff)**. See the base [`README.md`](https://github.com/tompollard/phd_thesis_markdown/blob/master/README.md) for how References are handled - leave `*_references.md` alone, and provide it to `pandoc` last.
+
+Proin faucibus nibh sit amet augue blandit varius.
 
 This is the introduction. Duis in neque felis. In hac habitasse platea dictumst. Cras eget rutrum elit. Pellentesque tristique venenatis pellentesque. Cras eu dignissim quam, vel sodales felis. Vestibulum efficitur justo a nibh cursus eleifend. Integer ultrices lorem at nunc efficitur lobortis.
 
@@ -37,7 +52,12 @@ This is the conclusion. Donec pulvinar molestie urna eu faucibus. In tristique u
 
 <!-- Insert an unordered list -->
 
+<!-- 
+
 - first item in the list
 - second item in the list
 - third item in the list
 
+<!-- 
+Comments can be added like this.
+--> 

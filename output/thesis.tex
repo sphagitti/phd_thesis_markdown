@@ -108,8 +108,8 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Firstname Surname},
-            pdftitle={This is the title of the thesis},
+            pdfauthor={Teresa Auerbach},
+            pdftitle={Time series based anomaly detection in an event driven environment by means of machne learning},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -343,35 +343,37 @@
 
     % Delete the following line
     % to remove the UCL header logo
-    \ThisULCornerWallPaper{1.0}{style/univ_logo.eps}
+    % \ThisULCornerWallPaper{1.0}{style/univ_logo.eps}
 
-        \vspace*{2.5cm}
+        \vspace*{1.0cm}
 
         \huge
-        This is the title of the thesis
+        Time series based anomaly detection in an event driven
+        environment by means of machne learning
 
                 \vspace{.5cm}
 
         \Large
-        This is the subtitle of the thesis
+        Zeitseriengestützte Anomaliedetektion in einer
+        ereignisgesteuerten Umgebung mittels maschinellem Lernen
         
 
         \vspace{1.5cm}
 
         \Large
-        Firstname Surname
+        Teresa Auerbach
 
         \vspace{1.5cm}
 
         \normalsize
         A thesis presented for the degree of\\
-        Doctor of Philosophy
+        Bachelor of Science
 
         \vfill
 
         \normalsize
         Supervised by:\\
-        Professor Louis Fage \\ Captain J. Y. Cousteau
+        Professor Sarah Brockhaus
 
         \vspace{0.8cm}
 
@@ -380,8 +382,8 @@
         % \includegraphics[width=0.4\textwidth]{style/univ_logo.eps}
 
         \normalsize
-        University College London, UK\\
-        January 2015
+        Hochschule für angewandte Wissenschaften München, Deutschland\\
+        August 2023
 
         % Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. Copyright 2015,Tom Pollard.
 
@@ -452,7 +454,7 @@ varius, sed finibus turpis placerat.
 \addcontentsline{toc}{chapter}{Abbreviations}
 
 \begin{tabbing}
-\textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\  
+\textbf{ARIMA}~~~~~~~~~~~~ \= \textbf{A}uto- \textbf{R}egressive \textbf{I}ntegrated \textbf{M}oving \textbf{A}verage \\  
 \textbf{JSON} \> \textbf{J}ava\textbf{S}cript \textbf{O}bject \textbf{N}otation \\  
 \end{tabbing}
 
@@ -464,60 +466,61 @@ varius, sed finibus turpis placerat.
 \setlength{\parindent}{0.5in}
 
 \hypertarget{sec:intro}{%
-\chapter{Introduction, with a citation}\label{sec:intro}}
+\chapter{The ARIMA model}\label{sec:intro}}
 
-\hypertarget{background}{%
-\section{Background}\label{background}}
+The ARIMA model consists of three different models combined into one and
+can be used to make predictions.
 
-This is the introduction. Quisque finibus aliquet cursus. Integer in
-pellentesque tellus. Duis eu dignissim nulla, a porttitor enim. Quisque
-vehicula leo non ultrices finibus. Duis vehicula quis sem sit amet
-sollicitudin. Integer neque est, pharetra et auctor vel, iaculis
-interdum lectus.
+\hypertarget{ar-part}{%
+\section{AR part}\label{ar-part}}
+
+Values from previous time stamps are used to predict the value for the
+next time stamp. The parameter \textbf{p} determines how many past
+values are used. Thus, the formula for the AR model can look like this:
+
+\begin{equation}\protect\hypertarget{eq:my_equation}{}{yt = c+$\phi$1yt−1+$\phi$2yt−2+⋯+$\phi$pyt−p+εt}\label{eq:my_equation}\end{equation}
+
+The component \emph{c} is a constant and can be used to shift the
+outcome of the prediction. If not desired, it can be set to 0 and be
+left out.
+
+The component \emph{εt} is white noise.
 
 To include a citation to the text, just add the citation key shown in
 the references.bib file. The style of the citation is determined by the
 ref\_format.csl file. For example, in The Living Sea you can find
 pictures of the Calypso (Cousteau Jacques \& Dugan James 1963).
 
-In neque mauris, maximus at sapien a, iaculis dignissim justo. Aliquam
-erat volutpat. Praesent varius risus auctor est ultricies, sit amet
-consequat nisi laoreet. Suspendisse non est et mauris pharetra sagittis
-non porta justo. Praesent malesuada metus ut sapien sodales ornare.
+\hypertarget{i-part}{%
+\section{I part}\label{i-part}}
 
-\hypertarget{the-middle-bit}{%
-\section{The middle bit}\label{the-middle-bit}}
+The differencing operation is performed on the time series in order to
+make it stationary. The paramter \textbf{d} indicates how often this
+operation is performed.
 
-This is the middle bit. Phasellus quis ex in ipsum pellentesque lobortis
-tincidunt sed massa. Nullam euismod sem quis dictum condimentum.
-Suspendisse risus metus, elementum eu congue quis, viverra ac metus.
-Donec non lectus at lectus euismod laoreet pharetra semper dui. Donec
-sed eleifend erat, vel ultrices nibh. Nam scelerisque turpis ac nunc
-mollis, et rutrum nisl luctus.
+\hypertarget{ma-part}{%
+\section{MA part}\label{ma-part}}
 
-Duis faucibus vestibulum elit, sit amet lobortis libero. Class aptent
-taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-himenaeos. Sed at cursus nibh. Sed accumsan imperdiet interdum. Proin id
-facilisis tortor. Proin posuere a neque nec iaculis. Suspendisse
-potenti. Nullam hendrerit ante mi, vitae iaculis dui laoreet eu.
+Previous forecast errors are used to predict the next value. The
+parameter \textbf{q} determines how many past forecast errors are used.
+Thus, the formula for the MA model can look like this:
 
-Cras eleifend velit diam, eu viverra mi volutpat ut. Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-finibus leo nec dui imperdiet, tincidunt ornare orci venenatis. Maecenas
-placerat efficitur est, eu blandit magna hendrerit eu.
+\begin{equation}\protect\hypertarget{eq:my_equation}{}{yt=c+εt+$\theta$1εt−1+$\theta$2εt−2+⋯+$\theta$qεt−q}\label{eq:my_equation}\end{equation}
 
-\hypertarget{subsection-of-the-middle-bit}{%
-\subsection{Subsection of the middle
-bit}\label{subsection-of-the-middle-bit}}
+As in the AR model, the component \emph{c} is a constant to shift the
+outcome and the component \emph{εt} is white noise.
 
-This is a subsection of the middle bit. Quisque sit amet tempus arcu, ac
-suscipit ante. Cras massa elit, pellentesque eget nisl ut, malesuada
-rutrum risus. Nunc in venenatis mi. Curabitur sit amet suscipit eros,
-non tincidunt nibh. Phasellus lorem lectus, iaculis non luctus eget,
-tempus non risus. Suspendisse ut felis mi.
+\hypertarget{determing-the-parameters}{%
+\section{Determing the parameters}\label{determing-the-parameters}}
 
-\hypertarget{summary-of-chapters}{%
-\section{Summary of chapters}\label{summary-of-chapters}}
+\hypertarget{parameter-p}{%
+\subsection{Parameter p}\label{parameter-p}}
+
+\hypertarget{parameter-d}{%
+\subsection{Parameter d}\label{parameter-d}}
+
+\hypertarget{parameter-q}{%
+\subsection{Parameter q}\label{parameter-q}}
 
 This is a brief outline of what went into each chapter, and a section
 which shows how to reference headers (which are labelled automatically

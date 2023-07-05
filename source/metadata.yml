@@ -1,14 +1,13 @@
 ---
 pagetitle: This is the HTML document title
-title: This is the title of the thesis
-subtitle: This is the subtitle of the thesis
-author: Firstname Surname
-date: January 2015
-location: University College London, UK
+title: Time series based anomaly detection in an event driven environment by means of machne learning
+subtitle: Zeitseriengestützte Anomaliedetektion in einer ereignisgesteuerten Umgebung mittels maschinellem Lernen
+author: Teresa Auerbach
+date: August 2023
+location: Hochschule für angewandte Wissenschaften München, Deutschland
 supervisor:
-- Professor Louis Fage
-- Captain J. Y. Cousteau
-degree: Doctor of Philosophy
+- Professor Sarah Brockhaus
+degree: Bachelor of Science
 eqnPrefix:
   - "Equation"
   - "Equations"

@@ -1,4 +1,5 @@
-# Final research study {#sec:research-final}
+<!-- # Final research study {#sec:research-final}
+
 
 ## Introduction
 
@@ -18,7 +19,7 @@ This is the second part of the methodology. Aenean vel pretium tortor. Aliquam e
 
 <!-- 
 Comments can be added like this.
---> 
+
 
 ## Results
 

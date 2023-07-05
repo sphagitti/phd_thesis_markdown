@@ -1,4 +1,7 @@
-# Research containing a table {#sec:research-table}
+# Comparision of the three methods {#sec:research-table}
+
+Discussion, Conclusion
+<!--
 
 ## Introduction
 
@@ -23,10 +26,12 @@ Comments can be added like this.
 ## Results
 
 <!-- Table formatting works same as figure formatting -->
+<!-- 
 
 [@tbl:random] shows us how to add a table. Integer tincidunt sed nisl eget pellentesque. Mauris eleifend, nisl non lobortis fringilla, sapien eros aliquet orci, vitae pretium massa neque eu turpis. Pellentesque tincidunt aliquet volutpat. Ut ornare dui id ex sodales laoreet.
 
 <!-- Force the table onto a newpage -->
+<!-- 
 
 \newpage
 
